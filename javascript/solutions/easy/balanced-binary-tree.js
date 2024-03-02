@@ -25,3 +25,4 @@ var height = function (node) {
 
     return { height: currentHeight, balanced: currentBalanced };
 }
+

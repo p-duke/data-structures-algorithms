@@ -33,6 +33,19 @@ function caesarCipherEncryptor(string, key) {
 	return newLetters.join('');
 }
 
+function caesarCipherEncryptor(string, key) {
+  let alpha = 'abcdefghijklmnopqrstuvwxyz';
+  let result = '';
+  for (let i = 0; i < string.length; i++) {
+    let letter = string[i];
+    let currPos = alpha.indexOf(letter);
+    let newPos = (currPos + key) % 26;
+    result += alpha[newPos];
+  }
+  return result;
+}
+
+
 function getNewLetter(letter, key) {
 	const newLetterCode = letter.charCodeAt() + key;
 	if (newLetterCode <= 122) {
