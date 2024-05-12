@@ -1,3 +1,3 @@
-module educative
+module github.com/p-duke/data-structures-algorithms
 
-go 1.19
+go 1.21.0
