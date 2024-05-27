@@ -1,0 +1,11 @@
+require "rspec/core/rake_task"
+
+
+task :test, [:test_name] do |t, args|
+  puts "Running test for #{args[:test_name]}..."
+  RSpec::Core::RakeTask.new(:spec) do |t|
+    t.pattern = "spec/#{args[:test_name]}_spec.rb"
+  end
+
+  Rake::Task["spec"].execute
+end
