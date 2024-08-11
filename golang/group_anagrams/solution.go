@@ -1,16 +1,9 @@
-func groupAnagrams(strs []string) [][]string {
-	// Problem
-	// input is slice of anagrams
-	// order the anagrams into groups
+import (
+	"sort"
+	"strings"
+)
 
-	// Solution
-	// create a map to hold anagrams (slice)
-	// loop over strings
-	// split, sort, and join the string
-	// check if in map
-	// if in map then add to array
-	// else add to map
-	// loop over map into slice of slices
+func groupAnagrams(strs []string) [][]string {
 	result := make([][]string, 0)
 	count := make(map[string][]string)
 	for _, word := range strs {

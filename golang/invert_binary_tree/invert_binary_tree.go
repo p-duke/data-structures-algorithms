@@ -10,3 +10,13 @@ func invertTree(root *TreeNode) *TreeNode {
   } 
   return root 
 }
+
+func invertTree(root *TreeNode) *TreeNode { 
+	if root == nil  {
+		return root
+	}
+
+    root.Left, root.Right = invertTree(root.Right), invertTree(root.Left)
+
+    return root
+}
