@@ -1,4 +1,4 @@
-package matrix
+package main
 
 func SetZeros(matrix Matrix) Matrix {
 	colLength := len(matrix[0])
