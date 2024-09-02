@@ -8,15 +8,18 @@ func main() {
 		{7, 8, 9},
 	}
 
-	rows := len(matrix)
-	cols := len(matrix[0])
-
-	// Create a visited matrix initialized to false
-	visited := make([][]bool, rows)
-	for i := range visited {
-		visited[i] = make([]bool, cols)
-	}
-
+	// DFS
+	// rows := len(matrix)
+	// cols := len(matrix[0])
+	// visited := make([][]bool, rows)
+	// for i := range visited {
+	// 	visited[i] = make([]bool, cols)
+	// }
 	// Start DFS from the top-left corner (0, 0)
-	matrix.DFS(0, 0, visited)
+	// matrix.DFS(0, 0, visited)
+
+
+	// BFS
+	matrix.BFS()
+	matrix.Print()
 }

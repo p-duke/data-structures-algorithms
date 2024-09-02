@@ -46,6 +46,57 @@ func (m Matrix) DFS(r, c int, visited [][]bool) {
 	m.DFS(r, c-1, visited) // Right
 }
 
+func (m Matrix) BFS() {
+	if len(m) == 0 {
+		return
+	}
+
+	rows := len(m)
+	cols := len(m)
+
+	// Directions array to help explore neighbors (up, down, left, right)
+	directions := [][]int{
+		{-1, 0}, // up
+		{1, 0}, // down
+		{0, -1}, // left
+		{0, 1}, // right
+	}
+
+	// Queue to manage BFS
+	queue := [][]int{}
+
+	// Starting BFS from top-left corner
+	queue = append(queue, []int{0, 0})
+
+	// Visited matrix to keep track of visited cells
+	visited := make([][]bool, rows)
+	for i := range visited {
+		visited[i] = make([]bool, cols)
+	}
+
+	visited[0][0] = true
+
+	for len(queue) > 0 {
+		// Dequeue a cell from the front
+		cell := queue[0]
+		queue = queue[1:]
+
+		row, col := cell[0], cell[1]
+		fmt.Printf("Visiting cell: [%d, %d] with value : %d\n", row, col, m[row][col])
+
+		// Explore all 4 possible directions
+		for _, direction := range directions {
+			newRow, newCol := row+direction[0], col+direction[1]
+
+			// Check if the new cell is within bounds and not yet visited
+			if newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && !visited[newRow][newCol] {
+				visited[newRow][newCol] = true
+				queue = append(queue, []int{newRow, newCol})
+			}
+		}
+	}
+}
+
 func (m Matrix) Print() {
 	for _, v := range m {
 		fmt.Println(v)
