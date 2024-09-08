@@ -58,3 +58,16 @@ func nthFibIterative(n int) int {
 	return fibSum
 }
 
+// Iterative
+func fib(n int) int {
+	sum := 0
+	prev := 1
+	for i := 0; i < n; i++ {
+        temp := sum
+        sum = sum + prev
+        prev = temp
+	}
+
+	return sum
+}
+

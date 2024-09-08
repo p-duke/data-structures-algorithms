@@ -24,6 +24,45 @@ func (m Matrix) RowMajorTraversal() {
 	}
 }
 
+// There are two separate ways to traverse a matrix diagonally
+// Primary - Top-left to bottom right
+// Secondary - Top-right to bottom-left
+//
+// You can also traverse an array using either zigzag traversal or straight diagonal traversal
+// Below is a straight diagonal traversal example
+func (m Matrix) DiagonalTraversal() []int {
+	if len(m) == 0 {
+		return []int{}
+	}
+
+	result := make([]int, 0)
+	rows := len(m)
+	cols := len(m[0])
+
+	// Traverse starting from first row
+	for col := 0; col < cols; col++ {
+		i, j := 0, col
+		// Traverse each diagonal
+		for i < rows && j >= 0 {
+			result = append(result, m[i][j])
+			i++
+			j--
+		}
+	}
+
+	// Traverse from the first column skipping the first element to avoid duplication
+	for row := 1; row < rows; row++ {
+		i, j := row, cols-1
+		for i < rows && j >= 0 {
+			result = append(result, m[i][j])
+			i++
+			j--
+		}
+	}
+
+	return result
+}
+
 // Up - (row - 1)
 // Down - (row + 1)
 // Left - (col - 1)
@@ -57,9 +96,9 @@ func (m Matrix) BFS() {
 	// Directions array to help explore neighbors (up, down, left, right)
 	directions := [][]int{
 		{-1, 0}, // up
-		{1, 0}, // down
+		{1, 0},  // down
 		{0, -1}, // left
-		{0, 1}, // right
+		{0, 1},  // right
 	}
 
 	// Queue to manage BFS

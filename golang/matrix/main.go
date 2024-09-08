@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	// Example matrix
 	matrix := Matrix{
@@ -18,8 +20,9 @@ func main() {
 	// Start DFS from the top-left corner (0, 0)
 	// matrix.DFS(0, 0, visited)
 
-
 	// BFS
-	matrix.BFS()
+	// matrix.BFS()
+
 	matrix.Print()
+	fmt.Println("Primary Diagonal Traversal", matrix.DiagonalTraversal())
 }
