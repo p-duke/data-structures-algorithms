@@ -10,6 +10,8 @@ func main() {
 		{7, 8, 9},
 	}
 
+	matrix.Print()
+
 	// DFS
 	// rows := len(matrix)
 	// cols := len(matrix[0])
@@ -23,6 +25,9 @@ func main() {
 	// BFS
 	// matrix.BFS()
 
-	matrix.Print()
-	fmt.Println("Primary Diagonal Traversal", matrix.DiagonalTraversal())
+	// Diagonal Traversal
+	// fmt.Println("Primary Diagonal Traversal", matrix.DiagonalTraversal())
+
+	// Spiral Traversal
+	fmt.Println("Spiral Traversal", matrix.SpiralTraverse())
 }

@@ -63,6 +63,53 @@ func (m Matrix) DiagonalTraversal() []int {
 	return result
 }
 
+func (m Matrix) SpiralTraverse() []int {
+	result := []int{}
+	if len(m) == 0 {
+		return result
+	}
+
+	top, bottom := 0, len(m)-1
+	left, right := 0, len(m[0])-1
+
+	// Traverse in spiral order
+	for top <= bottom && left <= right {
+		// Traverse from left to right across the top row
+		for i := left; i <= right; i++ {
+			result = append(result, m[top][i])
+		}
+
+		top++
+
+		// Traverse from top to bottom down the right column
+		for i := top; i <= bottom; i++ {
+			result = append(result, m[i][right])
+		}
+
+		right--
+
+		// Traverse from the right to left across the bottom row
+		if top <= bottom {
+			for i := right; i >= left; i-- {
+				result = append(result, m[bottom][i])
+			}
+
+			bottom--
+		}
+
+		// Traverse from bottom to top up the left column
+		if left <= right {
+			for i:= bottom; i >= top; i-- {
+				result = append(result, m[i][left])
+			}
+
+			left++
+		}
+	}
+
+	return result
+}
+
 // Up - (row - 1)
 // Down - (row + 1)
 // Left - (col - 1)
