@@ -8,19 +8,19 @@ package main
 // right child - (2*i) + 2
 // the last non-leaf - (len(array) - 2) / 2
 
-type MinHeap struct {
+type MinHeapSolution struct {
 	data []int
 }
 
 // Push method adds data to the underlying array
 // and bubbles up the value
-func (h *MinHeap) Push(x int) {
+func (h *MinHeapSolution) Push(x int) {
 	h.data = append(h.data, x)
 	h.bubbleUp(len(h.data)-1)
 }
 
 // BubbleUp
-func (h *MinHeap) bubbleUp(i int) {
+func (h *MinHeapSolution) bubbleUp(i int) {
 	for i > 0 && h.data[i] < h.data[h.parent(i)] {
 		h.data[i], h.data[h.parent(i)] = h.data[h.parent(i)], h.data[i]
 		i = h.parent(i)
@@ -28,7 +28,7 @@ func (h *MinHeap) bubbleUp(i int) {
 }
 
 // Pop
-func (h *MinHeap) Pop() int {
+func (h *MinHeapSolution) Pop() int {
 	if len(h.data) == 0 {
 		return -1
 	}
@@ -42,7 +42,7 @@ func (h *MinHeap) Pop() int {
 }
 
 // bubbleDown
-func (h *MinHeap) bubbleDown(i int) {
+func (h *MinHeapSolution) bubbleDown(i int) {
 	left := h.leftChild(i)
 	right := h.rightChild(i)
 	smallest := i
@@ -61,7 +61,7 @@ func (h *MinHeap) bubbleDown(i int) {
 	}
 }
 
-func (h *MinHeap) Peek() int {
+func (h *MinHeapSolution) Peek() int {
 	if len(h.data) == 0 {
 		return -1
 	}
@@ -70,15 +70,15 @@ func (h *MinHeap) Peek() int {
 }
 
 // Helper Methods
-func (h *MinHeap) parent(i int) int {
+func (h *MinHeapSolution) parent(i int) int {
 	return (i - 1) / 2
 }
 
-func (h *MinHeap) leftChild(i int) int {
+func (h *MinHeapSolution) leftChild(i int) int {
 	return (2 * i) + 1
 }
 
-func (h *MinHeap) rightChild(i int) int {
+func (h *MinHeapSolution) rightChild(i int) int {
 	return (2 * i) + 2
 }
 

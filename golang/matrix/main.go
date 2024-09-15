@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func main() {
 	// Example matrix
 	matrix := Matrix{
@@ -29,5 +27,5 @@ func main() {
 	// fmt.Println("Primary Diagonal Traversal", matrix.DiagonalTraversal())
 
 	// Spiral Traversal
-	fmt.Println("Spiral Traversal", matrix.SpiralTraverse())
+	// fmt.Println("Spiral Traversal", matrix.SpiralTraverse())
 }
