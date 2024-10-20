@@ -1,20 +1,24 @@
 
 // O(n) time | O(n) space
-func nthFibMemoized(n int) int {
-	if n <= 1 {
-		return n
-	}
+func fibBottomUp(n int) int {
+    if n <= 1 {
+        return n
+    }
 
-	// Create a memoization table to store Fibonacci numbers
-	memo := make([]int, n+1)
-	memo[0] = 0
-	memo[1] = 1
+    // Step 1: Initialize DP array
+    dp := make([]int, n+1)
 
-	for i := 2; i <= n; i++ {
-		memo[i] = memo[i-1] + memo[i-2]
-	}
+    // Step 2: Set base cases
+    dp[0] = 0
+    dp[1] = 1
 
-	return memo[n]
+    // Step 3: Build the DP array in a bottom-up manner
+    for i := 2; i <= n; i++ {
+        dp[i] = dp[i-1] + dp[i-2]
+    }
+
+    // Step 4: Return the final result
+    return dp[n]
 }
 
 // O(2^n) exponential time - We need to re-calculate fib(n) several times
