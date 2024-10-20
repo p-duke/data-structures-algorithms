@@ -183,6 +183,29 @@ func (m Matrix) BFS() {
 	}
 }
 
+func (m Matrix) Transpose() [][]int {
+	// Get the number of columns and rows
+	rows := len(m)
+	cols := len(m[0])
+
+	// Create a new matrix with dimensions cols x rows
+	result := make([][]int, cols)
+	for i := range result {
+		result[i] = make([]int, rows)
+	}
+
+	// Iterate over the original matrix and assign values to the new transposed matrix
+	// Use row major traversal
+	for r := 0; r < rows; r++ {
+		for c := 0; c < cols; c++ {
+			result[c][r] = m[r][c]
+		}
+	}
+
+	return result
+	
+}
+
 func (m Matrix) Print() {
 	for _, v := range m {
 		fmt.Println(v)
