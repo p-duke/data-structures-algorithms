@@ -1,4 +1,4 @@
-var calculateClicksByDomain = require('./main.js')
+var calculateClicksByDomain = require('./index.js')
 
 test("it should count domains", () => {
     const counts = [ 
