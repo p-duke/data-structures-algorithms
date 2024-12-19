@@ -99,7 +99,7 @@ func (m Matrix) SpiralTraverse() []int {
 
 		// Traverse from bottom to top up the left column
 		if left <= right {
-			for i:= bottom; i >= top; i-- {
+			for i := bottom; i >= top; i-- {
 				result = append(result, m[i][left])
 			}
 
@@ -203,7 +203,7 @@ func (m Matrix) Transpose() [][]int {
 	}
 
 	return result
-	
+
 }
 
 func (m Matrix) Print() {

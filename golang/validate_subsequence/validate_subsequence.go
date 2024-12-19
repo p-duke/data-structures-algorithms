@@ -1,11 +1,11 @@
 package main
 
 import (
-  "fmt"
-  "reflect"
+	"fmt"
+	"reflect"
 )
 
-/* 
+/*
 Title: Validate Subsequence
 Difficulty: Easy
 Pattern: N/A
@@ -45,71 +45,70 @@ O(n) time | O(1) space - where n is the length of the array
 */
 
 func isValidSubsequence(array []int, sequence []int) bool {
-  // Problem
-  // Check if subsequence is not adjacent but in the array
-  // Single number in an array and the array itself are valid subsequences
+	// Problem
+	// Check if subsequence is not adjacent but in the array
+	// Single number in an array and the array itself are valid subsequences
 
-  // Solution
-  // Loop over every element of the array
-  // Keep track of a sequence ID
-  // If the sequence index el matches the array el then increment to next sequence ID
-  // Else next array element
-  // If sequence length equals seqId we can exit the loop
-  // Return whether len of sequence equals seqId
-  // Time complexity O(n) | Space complexity O(1)
-  seqId := 0
-  for _, v := range array {
-    if seqId == len(sequence) {
-      break
-    }
+	// Solution
+	// Loop over every element of the array
+	// Keep track of a sequence ID
+	// If the sequence index el matches the array el then increment to next sequence ID
+	// Else next array element
+	// If sequence length equals seqId we can exit the loop
+	// Return whether len of sequence equals seqId
+	// Time complexity O(n) | Space complexity O(1)
+	seqId := 0
+	for _, v := range array {
+		if seqId == len(sequence) {
+			break
+		}
 
-    if v == sequence[seqId] {
-      seqId++
-    }
-  }
+		if v == sequence[seqId] {
+			seqId++
+		}
+	}
 
-  return seqId == len(sequence)
+	return seqId == len(sequence)
 }
 
 func main() {
-  tests := []struct{
-    array []int
-    sequence []int
-    want bool
-  }{
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{1, 6, -1, 10}, want: true },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 25, 6, -1, 8, 10}, want: true },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 6, -1, 8, 10}, want: true },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{22, 25, 6}, want: true },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{1, 6, 10}, want: true },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 10}, want: true },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, -1, 8, 10}, want: true },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{25}, want: true },
-    { array: []int{1, 1, 1, 1, 1}, sequence: []int{1, 1, 1}, want: true },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 25, 6, -1, 8, 10, 12}, want: false },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{4, 5, 1, 22, 25, 6, -1, 8, 10}, want: false },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 23, 6, -1, 8, 10}, want: false },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 22, 25, 6, -1, 8, 10}, want: false },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 22, 6, -1, 8, 10}, want: false },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{1, 6, -1, -1}, want: false },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{1, 6, -1, -1, 10}, want: false },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{1, 6, -1, -2}, want: false },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{26}, want: false },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 25, 22, 6, -1, 8, 10}, want: false },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 26, 22, 8}, want: false },
-    { array: []int{1, 1, 6, 1}, sequence: []int{1, 1, 1, 6}, want: false },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{1, 6, -1, 10, 11, 11, 11, 11}, want: false },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 25, 6, -1, 8, 10, 10}, want: false },
-    { array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{1, 6, -1, 5}, want: false },
-  }
+	tests := []struct {
+		array    []int
+		sequence []int
+		want     bool
+	}{
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{1, 6, -1, 10}, want: true},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 25, 6, -1, 8, 10}, want: true},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 6, -1, 8, 10}, want: true},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{22, 25, 6}, want: true},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{1, 6, 10}, want: true},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 10}, want: true},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, -1, 8, 10}, want: true},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{25}, want: true},
+		{array: []int{1, 1, 1, 1, 1}, sequence: []int{1, 1, 1}, want: true},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 25, 6, -1, 8, 10, 12}, want: false},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{4, 5, 1, 22, 25, 6, -1, 8, 10}, want: false},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 23, 6, -1, 8, 10}, want: false},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 22, 25, 6, -1, 8, 10}, want: false},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 22, 6, -1, 8, 10}, want: false},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{1, 6, -1, -1}, want: false},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{1, 6, -1, -1, 10}, want: false},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{1, 6, -1, -2}, want: false},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{26}, want: false},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 25, 22, 6, -1, 8, 10}, want: false},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 26, 22, 8}, want: false},
+		{array: []int{1, 1, 6, 1}, sequence: []int{1, 1, 1, 6}, want: false},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{1, 6, -1, 10, 11, 11, 11, 11}, want: false},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{5, 1, 22, 25, 6, -1, 8, 10, 10}, want: false},
+		{array: []int{5, 1, 22, 25, 6, -1, 8, 10}, sequence: []int{1, 6, -1, 5}, want: false},
+	}
 
-  for _, tc := range tests {
-    got := isValidSubsequence(tc.array, tc.sequence)
-    if !reflect.DeepEqual(tc.want, got) {
-      fmt.Printf("FAIL! Expected: %v --- Got: %v\n", tc.want, got)
-    } else {
-      // fmt.Printf("PASS Expected: %v --- Got: %v\n", tc.want, got)
-    }
-  }
+	for _, tc := range tests {
+		got := isValidSubsequence(tc.array, tc.sequence)
+		if !reflect.DeepEqual(tc.want, got) {
+			fmt.Printf("FAIL! Expected: %v --- Got: %v\n", tc.want, got)
+		} else {
+			// fmt.Printf("PASS Expected: %v --- Got: %v\n", tc.want, got)
+		}
+	}
 }
-

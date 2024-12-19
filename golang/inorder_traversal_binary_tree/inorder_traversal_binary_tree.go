@@ -20,31 +20,28 @@ TODO: Recursive solution is trivial, could you do it iteratively?
 */
 
 type TreeNode struct {
-  Val int
-  Left *TreeNode
-  Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func inorderTraversal(root *TreeNode) []int {
-  result := make([]int, 0)
-  traverse(root, &result)
-  return result
+	result := make([]int, 0)
+	traverse(root, &result)
+	return result
 }
 
 // Recursive - Time complexity O(n) | Space complexity O(n)
 func traverse(root *TreeNode, result *[]int) {
-  if root != nil {
-    traverse(root.Left, result)
-    *result = append(*result, root.Val)
-    traverse(root.Right, result)
-  }
+	if root != nil {
+		traverse(root.Left, result)
+		*result = append(*result, root.Val)
+		traverse(root.Right, result)
+	}
 }
 
 func main() {
-  tests := []struct{
-    root *TreeNode
-
-  }{
-
-  }
+	tests := []struct {
+		root *TreeNode
+	}{}
 }

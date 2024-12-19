@@ -1,10 +1,9 @@
 package main
 
-
 import (
-  "reflect"
-  "fmt"
-  "strings"
+	"fmt"
+	"reflect"
+	"strings"
 )
 
 /*
@@ -13,7 +12,7 @@ Title: Caesar Cipher Encryptor
 
 ---
 
-Question: 
+Question:
 
   Given a non-empty string of lowercase letters and a non-negative integer
   representing a key, write a function that returns a new string obtained by
@@ -48,32 +47,32 @@ Optimal Space & Time ComplexityO(n) time | O(n) space - where n is the length of
 */
 
 func caesarCipherEncryptor(str string, key int) string {
-  alpha := "abcdefghijklmnopqrstuvwxyz"
-  var result string
-  for _, v := range str {
-    currPos := strings.Index(alpha, string(v))
-    newPos := (currPos + key) % 26
-    result += string(alpha[newPos])
-  }
+	alpha := "abcdefghijklmnopqrstuvwxyz"
+	var result string
+	for _, v := range str {
+		currPos := strings.Index(alpha, string(v))
+		newPos := (currPos + key) % 26
+		result += string(alpha[newPos])
+	}
 
-  return result
+	return result
 }
 
 func main() {
-  tests := []struct{
-    str string
-    key int
-    want string
-  }{
-    { str: "xyz", key: 2, want: "zab" },
-  }
+	tests := []struct {
+		str  string
+		key  int
+		want string
+	}{
+		{str: "xyz", key: 2, want: "zab"},
+	}
 
-  for _, tc := range tests {
-    got := caesarCipherEncryptor(tc.str, tc.key)
-    if !reflect.DeepEqual(got, tc.want) {
-      fmt.Printf("FAILED! got: %s, want: %s", got, tc.want)
-    } else {
-      fmt.Printf("PASSED! got: %s, want: %s", got, tc.want)
-    }
-  }
+	for _, tc := range tests {
+		got := caesarCipherEncryptor(tc.str, tc.key)
+		if !reflect.DeepEqual(got, tc.want) {
+			fmt.Printf("FAILED! got: %s, want: %s", got, tc.want)
+		} else {
+			fmt.Printf("PASSED! got: %s, want: %s", got, tc.want)
+		}
+	}
 }

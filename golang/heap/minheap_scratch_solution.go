@@ -16,7 +16,7 @@ type MinHeapSolution struct {
 // and bubbles up the value
 func (h *MinHeapSolution) Push(x int) {
 	h.data = append(h.data, x)
-	h.bubbleUp(len(h.data)-1)
+	h.bubbleUp(len(h.data) - 1)
 }
 
 // BubbleUp
@@ -81,4 +81,3 @@ func (h *MinHeapSolution) leftChild(i int) int {
 func (h *MinHeapSolution) rightChild(i int) int {
 	return (2 * i) + 2
 }
-

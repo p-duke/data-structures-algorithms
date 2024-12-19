@@ -64,37 +64,36 @@ Test Cases
 */
 
 func main() {
-  tests := []struct{
-    n int
-    want int
-  }{
-    { n: 6, want: 5 },
-    { n: 1, want: 0 },
-    { n: 2, want: 1 },
-    { n: 3, want: 1 },
-    { n: 4, want: 2 },
-    { n: 5, want: 3 },
-    { n: 7, want: 8 },
-    { n: 8, want: 13 },
-    { n: 9, want: 21 },
-    { n: 10, want: 34 },
-    { n: 11, want: 55 },
-    { n: 12, want: 89 },
-    { n: 13, want: 144 },
-    { n: 14, want: 233 },
-    { n: 15, want: 377 },
-    { n: 16, want: 610 },
-    { n: 17, want: 987 },
-    { n: 18, want: 1597 },
-  }
+	tests := []struct {
+		n    int
+		want int
+	}{
+		{n: 6, want: 5},
+		{n: 1, want: 0},
+		{n: 2, want: 1},
+		{n: 3, want: 1},
+		{n: 4, want: 2},
+		{n: 5, want: 3},
+		{n: 7, want: 8},
+		{n: 8, want: 13},
+		{n: 9, want: 21},
+		{n: 10, want: 34},
+		{n: 11, want: 55},
+		{n: 12, want: 89},
+		{n: 13, want: 144},
+		{n: 14, want: 233},
+		{n: 15, want: 377},
+		{n: 16, want: 610},
+		{n: 17, want: 987},
+		{n: 18, want: 1597},
+	}
 
-  for _, tc := range tests {
-    got := nthFibRecursive(tc.n)
-    if !reflect.DeepEqual(tc.want, got) {
-      fmt.Printf("FAIL! Expected: %d, Got: %d\n", tc.want, got)
-    } else {
-      fmt.Printf("PASS! Expected: %d, Got: %d\n", tc.want, got)
-    }
-  }
+	for _, tc := range tests {
+		got := nthFibRecursive(tc.n)
+		if !reflect.DeepEqual(tc.want, got) {
+			fmt.Printf("FAIL! Expected: %d, Got: %d\n", tc.want, got)
+		} else {
+			fmt.Printf("PASS! Expected: %d, Got: %d\n", tc.want, got)
+		}
+	}
 }
-

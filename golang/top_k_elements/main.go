@@ -41,4 +41,3 @@ func main() {
 	k := 2
 	fmt.Println(topKFrequent(nums, k)) // Output: [1, 2]
 }
-

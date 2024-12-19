@@ -45,4 +45,3 @@ func buildHeapByPush(nums []int) *MinHeap {
 	}
 	return mh
 }
-

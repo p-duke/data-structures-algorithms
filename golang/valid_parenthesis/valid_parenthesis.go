@@ -41,10 +41,10 @@ func isValid(s string) bool {
 		// Opening
 		if _, ok := pairs[char]; ok {
 			stack = append(stack, char)
-        // Closing invalid
+			// Closing invalid
 		} else if len(stack) == 0 || pairs[stack[len(stack)-1]] != char {
-            return false
-        // Closing valid
+			return false
+			// Closing valid
 		} else {
 			stack = stack[:len(stack)-1]
 		}
@@ -53,16 +53,15 @@ func isValid(s string) bool {
 	return len(stack) == 0
 }
 
-
 func main() {
-	tests := []struct{
+	tests := []struct {
 		input string
-		want bool
+		want  bool
 	}{
-		{ input: "()", want: true },
-		{ input: "()[]{}", want: true },
-		{ input: "(]", want: false },
-		{ input: "{(([]))}", want: true },
+		{input: "()", want: true},
+		{input: "()[]{}", want: true},
+		{input: "(]", want: false},
+		{input: "{(([]))}", want: true},
 	}
 
 	for _, tc := range tests {
@@ -75,4 +74,3 @@ func main() {
 	}
 
 }
-

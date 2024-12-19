@@ -30,7 +30,6 @@ func main() {
 	fmt.Println(sumTo100([]int{50, 50, 50, 50, 50})) // [[50, 50], [50, 50]]
 }
 
-
 // Solution
 // - First going to sort the list
 // - Two pointer strategy - Left and Right pointer - O(n)
@@ -49,11 +48,11 @@ func main() {
 func sumTo100(input []int) [][]int {
 	// Sort - O(n(log(n)))
 	sort.Ints(input)
-  target := 100
+	target := 100
 	var sum int
 	result := make([][]int, 0)
-	left, right := 0, len(input) - 1
-	
+	left, right := 0, len(input)-1
+
 	// O(n) time
 	for left < right {
 		sum = input[left] + input[right]
@@ -61,7 +60,7 @@ func sumTo100(input []int) [][]int {
 			temp := []int{input[left], input[right]}
 			result = append(result, temp)
 			left += 1
-			right -=1
+			right -= 1
 		}
 
 		if sum > target {
@@ -75,4 +74,3 @@ func sumTo100(input []int) [][]int {
 
 	return result
 }
-

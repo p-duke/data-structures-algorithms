@@ -42,10 +42,10 @@ func checkWinner(board [][]string) string {
 	// - On each loop we can also add the column to a variable for column 1, 2, 3
 	// - On each loop we can also add the diagonal to a variable diagTopLeft and diagTopRight
 	var (
-		col1 string 
-		col2 string 
+		col1 string
+		col2 string
 		col3 string
-	) 
+	)
 
 	winner := "Draw"
 	var diagTopLeft string
@@ -99,15 +99,15 @@ func fillBoard(moves [][]int) [][]string {
 	// - On each loop we'll board[row][col]
 	// - return a board
 	board := [][]string{
-		{"","",""},
-		{"","",""},
-		{"","",""},
+		{"", "", ""},
+		{"", "", ""},
+		{"", "", ""},
 	}
 
 	for i, move := range moves {
 		row, col := move[0], move[1]
-		// A 
-		if i % 2 == 0 {
+		// A
+		if i%2 == 0 {
 			board[row][col] = "X"
 		} else {
 			board[row][col] = "O"
@@ -118,13 +118,13 @@ func fillBoard(moves [][]int) [][]string {
 }
 
 func main() {
-	tests := []struct{
+	tests := []struct {
 		input [][]int
-		want string
+		want  string
 	}{
-		{ input: [][]int{{0,0},{2,0},{1,1},{2,1},{2,2}}, want: "A" },
-		{ input: [][]int{{0,0},{1,1},{0,1},{0,2},{1,0},{2,0}}, want: "B" },
-		{ input: [][]int{{0,0},{1,1},{2,0},{1,0},{1,2},{2,1},{0,1},{0,2},{2,2}}, want: "Draw" },
+		{input: [][]int{{0, 0}, {2, 0}, {1, 1}, {2, 1}, {2, 2}}, want: "A"},
+		{input: [][]int{{0, 0}, {1, 1}, {0, 1}, {0, 2}, {1, 0}, {2, 0}}, want: "B"},
+		{input: [][]int{{0, 0}, {1, 1}, {2, 0}, {1, 0}, {1, 2}, {2, 1}, {0, 1}, {0, 2}, {2, 2}}, want: "Draw"},
 	}
 
 	for _, tc := range tests {
@@ -136,4 +136,3 @@ func main() {
 		}
 	}
 }
-
