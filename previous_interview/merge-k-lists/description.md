@@ -1,6 +1,4 @@
-Create a function that accepts any number of sorted integer slices and returns a single sorted integer slice containing all of the elements of the input slices. 
-
-Any package in Go's standard library may be used, but is not necessary.
+Create a function that accepts any number of sorted integer array and returns a single sorted integer array containing all of the elements of the input array.
 
 Example: Three input slices are given,
 {3, 9},
